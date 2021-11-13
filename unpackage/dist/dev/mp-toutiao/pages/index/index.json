@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "今日头条",
+  "navigationBarBackgroundColor": "#e24d49",
+  "usingComponents": {
+    "uni-icons": "/uni_modules/uni-icons/components/uni-icons/uni-icons",
+    "text-news-preview": "/components/textNewsPreview",
+    "news-content": "/components/newsContent",
+    "search-bar": "/components/searchBar"
+  }
+}

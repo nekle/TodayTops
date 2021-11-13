@@ -1,0 +1,33 @@
+
+.search-area {
+	display: inline-block;
+	box-sizing: border-box;
+	background-color: #fcfefd;
+	border-radius: 50px;
+	margin: 0 0 5% 5%;
+	width: 75%;
+	height: 95%;
+}
+.search-input-area {
+	display: inline-block;
+	box-sizing: border-box;
+	border-color: #999999;
+	width: 70%;
+	height: 100%;
+}
+.search-bar {
+	display: inline-block;
+	box-sizing: border-box;
+	width: 60%;
+	height: 30rpx;
+	margin: 10rpx 0 10rpx 0;
+	border-radius: 15rpx;
+}
+.search-button {
+	display: inline-block;
+	box-sizing: border-box;
+	/* margin: 10% 5% 1% 5%; */
+	width: 20%;
+	height: 20%;
+}
+

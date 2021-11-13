@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/index/searchIndex/searchIndex"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#e24d49",
+    "backgroundColor": "#F8F8F8"
+  },
+  "usingComponents": {}
+}

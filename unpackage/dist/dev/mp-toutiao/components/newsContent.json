@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "text-news-preview": "/components/textNewsPreview"
+  }
+}
