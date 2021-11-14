@@ -2,7 +2,7 @@
 	<view style="width: 100%; height: 100%;">
 		<!-- scroll-left="120"；右边的元素上来的距离 -->
 		<scroll-view class="scroll-view_V" scroll-y="true" show-scroll-bar=true>
-			<view class="scroll-view-item_V" v-for="(item,index) in data" :key="index">
+			<view class="scroll-view-item_V" v-for="(item,index) in data" :key="index" @click="item_clicked(index)">
 				<textNewsPreview :title="item.title" :author="item.author" :status="item.status" :date="item.date">
 				</textNewsPreview>
 			</view>
@@ -36,7 +36,21 @@
 				this.$ajax.get('getTextNews').then(res => {
 					this.data = res.data.result
 				})
-			}
+			},
+			item_clicked(index){
+							console.log("--------!zw"+index)
+							uni.navigateTo({
+								url:'/pages/detail/detail?index='+index,
+								events:{
+									success: function() {
+										console.log("成功")
+									},
+									fail: function() {
+										console.log("跳转失败")
+									}
+								}
+							})
+						}
 		},
 		props: {
 			tabName: String
