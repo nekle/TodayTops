@@ -3,11 +3,13 @@
 
 		<!-- 文本部分 -->
 		<view class="news-text">
-			<text class="higher-view-text">{{title}}图文新闻</text>
-			<view class="lower-view">
-				<text style="font-size: 10px; color: red; ">{{status}}图文新闻</text>
-				<text style="font-size: 10px;">{{author}}图文新闻</text>
-				<text style="font-size: 10px;">{{date}}图文新闻</text>
+			<view class="news-title">
+				<text class="higher-view-text">{{title}}图文新闻</text>
+			</view>
+			<view class="news-description">
+				<text style="font-size: 1vh; color: red; ">{{status}}图文新闻</text>
+				<text style="font-size: 1vh;">{{author}}图文新闻</text>
+				<text style="font-size: 1vh;">{{date}}图文新闻</text>
 			</view>
 		</view>
 
@@ -51,36 +53,46 @@
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
-		font: Arial, Helvetica, sans-serif;
 	}
 
 	.higher-view-text {
-		font-size: 20px;
+		font-size: 3vh;
 		display: flex;
 		text-align: left;
 		justify-content: flex-start;
 		color: #222222;
 	}
 
-	.lower-view {
+	.news-description {
 		display: flex;
 		justify-content: flex-start;
+		align-items: flex-end;
 	}
 
-	.lower-view text {
-		text-align: left;
-		margin-right: 5px;
+	.news-description text {
+		margin-right: 1vh;
 		color: #c8c8c8;
 	}
 
 	.news-container {
-		height: 100%;
+		display: flex;
+		align-items: center;
 		width: 100%;
+		height: 100%;
+		border-top: .01vh solid rgba(123, 123, 123, .1);
+		border-bottom: .01vh solid rgba(123, 123, 123, .1);
+	}
+
+	.news-title {
+		width: 100%;
+		height: 85%;
+		display: flex;
+		align-items: flex-start;
 	}
 
 	.news-text {
-		border-right: 1px solid #999999;
 		width: 55%;
+		height: 100%;
 		display: inline-block;
 	}
 

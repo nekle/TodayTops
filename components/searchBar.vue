@@ -1,12 +1,10 @@
 <template>
-		<view class="search-input-area" @click="toSearch">
-			<view
-				style="display: inline-block; width: 30px; height: 30px; margin-bottom:20px; center; transform: translate(25%,-25%);">
-				<uni-icons type="search" size="18" style="display: inline-block;"></uni-icons>
-			</view>
-			<input class="search-bar" type="text" :value="searchContent"
-				:placeholder="placeHolder" />
+	<view class="search-input-area" >
+		<view class="search-icon">
+			<uni-icons type="search" size="20"></uni-icons>
 		</view>
+		<input class="search-bar" type="text" :value="searchContent" :placeholder="placeHolder" />
+	</view>
 </template>
 
 <script>
@@ -19,22 +17,7 @@
 			};
 		},
 		methods: {
-			toSearch() {
-				//在起始页面跳转到test.vue页面并传递参数
-				console.log("跳转到搜索界面")
-				uni.navigateTo({
-					url: '/pages/index/searchIndex/searchIndex',
-					events: {
-						success: function() {
-							console.log("成功")
-						},
-						fail: function() {
-							console.log("跳转失败")
-						}
-
-					}
-				});            
-			}
+			
 		},
 		props: {
 			searchStatus: false
@@ -59,29 +42,36 @@
 	}
 
 	.search-input-area {
-		display: inline-block;
+		display: inline-flex;
+		align-items: center;
 		box-sizing: border-box;
 		background-color: #fefefe;
 		border-radius: 50px;
-		margin: 0 0 5% 5%;
-		width: 75%;
-		height: 95%;
+		border-bottom: .01vh solid rgba(123, 123, 123, .1);
+		height: 90%;
+		width: 80vw;
+		margin-left: 1vw;
 	}
 
 
+	.search-icon {
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		padding-left: 3%;
+		padding-right: 3%;
+	}
 
 	.search-bar {
-		display: inline-block;
+		display: inline-flex;
+		align-items: center;
 		box-sizing: border-box;
-		width: 60%;
+		width: 85%;
 		height: 30upx;
 		margin: 10upx 0 10upx 0;
 		border-radius: 15upx;
 	}
 
-	.search-bar-gray {
-		background-color: #f2f2f2;
-	}
 	.search-button {
 		display: inline-block;
 		box-sizing: border-box;

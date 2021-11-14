@@ -2,7 +2,10 @@
 	<view class="container">
 
 		<view class="search-area">
-			<searchBar></searchBar>
+			<view>
+				<searchBar></searchBar>
+			</view>
+			
 			<button class="search-button">搜索</button>
 		</view>
 
@@ -85,13 +88,18 @@
 		box-sizing: border-box;
 	}
 
-	.search-area{
+	.container {
+		width: 100vw;
+		height: 94vh;
+	}
+
+	.search-area {
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
-		height: 40px;
+		height: 7%;
 		width: 100%;
-		background-color: rgba(123,123,123,.5);
+		/* background-color: rgba(123, 123, 123, .5); */
 	}
 
 	.search-button {
@@ -105,7 +113,8 @@
 		border: none;
 		font-size: 14px;
 	}
-	
-	button::after { border: none }
 
+	button::after {
+		border: none
+	}
 </style>

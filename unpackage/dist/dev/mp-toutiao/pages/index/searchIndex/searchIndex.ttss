@@ -1,11 +1,15 @@
 
-.search-area.data-v-195884c2{
+.container.data-v-195884c2 {
+	width: 100vw;
+	height: 94vh;
+}
+.search-area.data-v-195884c2 {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
-	height: 40px;
+	height: 7%;
 	width: 100%;
-	background-color: rgba(123,123,123,.5);
+	/* background-color: rgba(123, 123, 123, .5); */
 }
 .search-button.data-v-195884c2 {
 	display: inline-flex;
@@ -18,7 +22,7 @@
 	border: none;
 	font-size: 14px;
 }
-button.data-v-195884c2::after { border: none
+button.data-v-195884c2::after {
+	border: none
 }
-
 
