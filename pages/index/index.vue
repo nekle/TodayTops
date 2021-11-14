@@ -22,13 +22,17 @@
 
 
 		<view name="newsArea" style="height: 900px;">
+			<!-- 横向滚动 -->
 			<swiper :duration="550" :current="tabIndex" @change="onChangeTab" style="height: 100%;">
+				
 				<swiper-item v-for="(item,index) in tabBars" :key="index">
 					<newsContent :tabName=item.name></newsContent>
 				</swiper-item>
+				
 			</swiper>
 		</view>
-
+		
+		
 
 	</view>
 </template>
