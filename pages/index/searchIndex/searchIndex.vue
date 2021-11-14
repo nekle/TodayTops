@@ -1,9 +1,9 @@
 <template>
 	<view class="container">
-		
-		<view style="height: 40px;background-color: #F8F8F8;">
+
+		<view class="search-are">
 			<searchBar></searchBar>
-			<button style="display: inline-block; width: 20%; height: 80%; box-sizing: border-box; color: #e25448; border: 0 0 none;">搜索</button>
+			<button class="search-button">搜索</button>
 		</view>
 
 	</view>
@@ -84,51 +84,25 @@
 		text-decoration: none;
 		box-sizing: border-box;
 	}
-	
-	.tabs {
-		flex: 1;
-		flex-direction: column;
-		overflow: hidden;
-		background-color: #ffffff;
-		/* #ifdef MP-ALIPAY || MP-BAIDU */
-		height: 100vh;
-		/* #endif */
+
+	.search-are {
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		height: 40px;
+		width: 100%;
+		background-color: #F8F8F8;
 	}
 
-	.scroll-h {
-		width: 750upx;
-		height: 80upx;
-		flex-direction: row;
-		/* #ifndef APP-PLUS */
-		white-space: nowrap;
-		/* #endif */
-		/* flex-wrap: nowrap; */
-		/* border-color: #cccccc;
-     border-bottom-style: solid;
-     border-bottom-width: 1px; */
-	}
-
-	.uni-tab-item {
-		/* #ifndef APP-PLUS */
-		display: inline-block;
-		/* #endif */
-		flex-wrap: nowrap;
-		padding-left: 34upx;
-		padding-right: 34upx;
-	}
-
-	.uni-tab-item-title {
-		color: #555;
-		font-size: 30upx;
-		height: 80upx;
-		line-height: 80upx;
-		flex-wrap: nowrap;
-		/* #ifndef APP-PLUS */
-		white-space: nowrap;
-		/* #endif */
-	}
-
-	.uni-tab-item-title-active {
-		color: #e24d48;
+	.search-button {
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		width: 20%;
+		height: 100%;
+		box-sizing: border-box;
+		color: #e25448;
+		border: 0 0 none;
+		font-size: 14px;
 	}
 </style>
