@@ -3,6 +3,7 @@
 		{{tabName}}
 		<!-- scroll-left="120"；右边的元素上来的距离 -->
 		<scroll-view class="scroll-view_V" scroll-y="true" show-scroll-bar=true>
+			<swiper-item @click="item_clicked()"></swiper-item>
 			<view class="scroll-view-item_V" v-for="(item,index) in data" :key="index">
 				{{index}}
 				<textNewsPreview :title="item.title" :author="item.author" :status="item.status" :date="item.date">
@@ -29,6 +30,9 @@
 				this.$ajax.get('getTextNews').then(res => {
 					this.data = res.data.result
 				})
+			},
+			item_clicked(){
+				console.log("--------!zw")
 			}
 		},
 		props: {

@@ -16,7 +16,7 @@
             
         }
         ,{
-            "path" : "pages/index/detail/detail/detail",
+            "path" : "pages/index/detail/detail",
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",
