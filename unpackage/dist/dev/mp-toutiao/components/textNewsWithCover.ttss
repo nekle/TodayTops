@@ -1,0 +1,32 @@
+
+.higher-view-text.data-v-6034d6b4 {
+	font-size: 20px;
+	display: flex;
+	text-align: left;
+	justify-content: flex-start;
+	color: #222222;
+}
+.lower-view.data-v-6034d6b4 {
+	display: flex;
+	justify-content: flex-start;
+}
+.lower-view text.data-v-6034d6b4 {
+	text-align: left;
+	margin-right: 5px;
+	color: #c8c8c8;
+}
+.news-container.data-v-6034d6b4 {
+	height: 100%;
+	width: 100%;
+}
+.news-text.data-v-6034d6b4 {
+	border-right: 1px solid #999999;
+	width: 55%;
+	display: inline-block;
+}
+.news-cover-img.data-v-6034d6b4 {
+	display: inline-block;
+	width: 40%;
+	height: 100%;
+}
+

@@ -6,16 +6,22 @@
 				<textNewsPreview :title="item.title" :author="item.author" :status="item.status" :date="item.date">
 				</textNewsPreview>
 			</view>
+			<view style="height: 140upx;;">
+				<!-- 带封面新闻 -->
+				<textNewsWithCover></textNewsWithCover>
+			</view>
 		</scroll-view>
 	</view>
 </template>
 
 <script>
+	import textNewsWithCover from "./textNewsWithCover.vue"
 	import textNewsPreview from "./textNewsPreview.vue"
 	export default {
 		name: "newsContent",
 		components: {
 			textNewsPreview,
+			textNewsWithCover,
 		},
 		data() {
 			return {
