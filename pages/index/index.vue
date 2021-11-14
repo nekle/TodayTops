@@ -1,38 +1,22 @@
 <template>
 	<view class="container">
-		
-		<!-- 搜索栏 -->
-		<view class="search-area">
+		<view style="height: 40px;background-color: #e35549;">
 			<searchBar></searchBar>
-			<view class="plus-icon">
-				<uni-icons type="plus" size="30" style=" color: #fdfcff;"></uni-icons>
-			</view>
+			<uni-icons type="plus" size="30" style="margin: 0 5% 20% 5%; color: #fdfcff;"></uni-icons>
 		</view>
-		
 		<!-- 顶部选项卡 -->
-		<view>
-			<scroll-view scroll-x class="scroll-h" :scroll-into-view="scrollInto" scroll-with-animation>
-				<view v-for="(item,index) in tabBars" :key="index" :id="'tab'+index" style="height: 100rpx;"
-					class="uni-tab-item" :class=" {'uni-tab-item-title-active' :tabIndex==index}"
-					@click="changeTab(index)">
-					{{item.name}}
-				</view>
-			</scroll-view>
-		</view>
+		<scroll-view scroll-x class="scroll-h" :scroll-into-view="scrollInto" scroll-with-animation>
+			<view v-for="(item,index) in tabBars" :key="index" :id="'tab'+index" style="height: 100rpx;"
+				class="uni-tab-item" :class=" {'uni-tab-item-title-active' :tabIndex==index}" @click="changeTab(index)">
+				{{item.name}}
+			</view>
+		</scroll-view>
 
-<<<<<<< HEAD
 		<view name="newsArea">
 			<swiper :duration="550" :current="tabIndex" @change="onChangeTab" :style="'height:'+scrollH+'px;'">
-				<swiper-item @click="item_clicked(index)"></swiper-item>
-=======
-
-		<view name="newsArea" style="height: 900px;">
-			<swiper :duration="550" :current="tabIndex" @change="onChangeTab" style="height: 100%;">
->>>>>>> 68503105968ad604c46e74ac22a6c7bc29a7d925
 				<swiper-item v-for="(item,index) in tabBars" :key="index">
 					<newsContent :tabName=item.name></newsContent>
 				</swiper-item>
-				
 			</swiper>
 		</view>
 
@@ -106,10 +90,7 @@
 			// 监听滑动
 			onChangeTab(e) {
 				this.changeTab(e.detail.current)
-			},
-			item_clicked(index){
-				console.log(index+"********")
-			},
+			}
 		},
 		mounted() {
 
@@ -118,11 +99,12 @@
 </script>
 
 <style scoped>
+	
 	* {
 		text-decoration: none;
 		box-sizing: border-box;
 	}
-
+	
 	.tabs {
 		flex: 1;
 		flex-direction: column;
@@ -133,14 +115,6 @@
 		/* #endif */
 	}
 
-	.plus-icon {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 20%;
-		height: 100%;
-	}
-
 	.scroll-h {
 		width: 750upx;
 		height: 80upx;
@@ -149,32 +123,32 @@
 		white-space: nowrap;
 		/* #endif */
 		/* flex-wrap: nowrap; */
-		border-bottom: 1px solid rgba(186, 186, 186, .3);
+		/* border-color: #cccccc;
+     border-bottom-style: solid;
+     border-bottom-width: 1px; */
 	}
 
 	.uni-tab-item {
-		display: flex;
-		justify-content: center;
-		align-items: center;
 		/* #ifndef APP-PLUS */
-		display: inline-flex;
+		display: inline-block;
 		/* #endif */
 		flex-wrap: nowrap;
 		padding-left: 34upx;
 		padding-right: 34upx;
 	}
 
-	.uni-tab-item-title-active {
-		color: #e24d48;
+	.uni-tab-item-title {
+		color: #555;
+		font-size: 30upx;
+		height: 80upx;
+		line-height: 80upx;
+		flex-wrap: nowrap;
+		/* #ifndef APP-PLUS */
+		white-space: nowrap;
+		/* #endif */
 	}
 
-
-	.search-area {
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		height: 40px;
-		width: 100%;
-		background-color: #e24d48;
+	.uni-tab-item-title-active {
+		color: #e24d48;
 	}
 </style>
