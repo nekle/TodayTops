@@ -1,12 +1,12 @@
 <template>
-	<view class="search-area">
 		<view class="search-input-area" @click="toSearch">
-			<view style="display: inline-block; width: 30px; height: 30px; margin-bottom:20px; center; transform: translate(25%,-25%);">
+			<view
+				style="display: inline-block; width: 30px; height: 30px; margin-bottom:20px; center; transform: translate(25%,-25%);">
 				<uni-icons type="search" size="18" style="display: inline-block;"></uni-icons>
 			</view>
-			<input class="search-bar" type="text" :value="searchContent" :placeholder="placeHolder" />
+			<input class="search-bar" type="text" :value="searchContent"
+				:placeholder="placeHolder" />
 		</view>
-	</view>
 </template>
 
 <script>
@@ -33,8 +33,11 @@
 						}
 
 					}
-				});
+				});            
 			}
+		},
+		props: {
+			searchStatus: false
 		}
 	}
 </script>
@@ -45,10 +48,10 @@
 		box-sizing: border-box;
 	}
 
-	.search-area {
+	.search-are {
 		display: inline-block;
 		box-sizing: border-box;
-		background-color: #fcfefd;
+		background-color: #fefefe;
 		border-radius: 50px;
 		margin: 0 0 5% 5%;
 		width: 75%;
@@ -58,10 +61,14 @@
 	.search-input-area {
 		display: inline-block;
 		box-sizing: border-box;
-		border-color: #999999;
-		width: 70%;
-		height: 100%;
+		background-color: #fefefe;
+		border-radius: 50px;
+		margin: 0 0 5% 5%;
+		width: 75%;
+		height: 95%;
 	}
+
+
 
 	.search-bar {
 		display: inline-block;
@@ -72,6 +79,9 @@
 		border-radius: 15upx;
 	}
 
+	.search-bar-gray {
+		background-color: #f2f2f2;
+	}
 	.search-button {
 		display: inline-block;
 		box-sizing: border-box;
