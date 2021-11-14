@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/index/searchIndex/searchIndex"
+    "pages/index/searchIndex/searchIndex",
+    "pages/index/detail/detail/detail"
   ],
   "subPackages": [],
   "window": {

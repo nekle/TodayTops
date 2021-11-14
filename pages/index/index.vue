@@ -14,9 +14,11 @@
 
 		<view name="newsArea">
 			<swiper :duration="550" :current="tabIndex" @change="onChangeTab" :style="'height:'+scrollH+'px;'">
+				<swiper-item @click="item_clicked(index)"></swiper-item>
 				<swiper-item v-for="(item,index) in tabBars" :key="index">
 					<newsContent :tabName=item.name></newsContent>
 				</swiper-item>
+				
 			</swiper>
 		</view>
 
@@ -90,6 +92,9 @@
 			// 监听滑动
 			onChangeTab(e) {
 				this.changeTab(e.detail.current)
+			},
+			item_clicked(index){
+				console.log(index+"********")
 			},
 		},
 		mounted() {
