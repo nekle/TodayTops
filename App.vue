@@ -15,4 +15,7 @@
 
 <style>
 	/*每个页面公共css */
+	* {
+		font: Arial, Helvetica, sans-serif;
+	}
 </style>

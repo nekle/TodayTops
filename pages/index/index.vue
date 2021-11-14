@@ -1,18 +1,20 @@
 <template>
 	<view class="container">
-		
+
 		<!-- 搜索栏 -->
 		<view class="search-area">
-			<searchBar></searchBar>
+			<view @click="toSearch">
+				<searchBar @click="toSearch"></searchBar>
+			</view>
 			<view class="plus-icon">
 				<uni-icons type="plus" size="30" style=" color: #fdfcff;"></uni-icons>
 			</view>
 		</view>
-		
+
 		<!-- 顶部选项卡 -->
-		<view>
+		<view class="tab-bars">
 			<scroll-view scroll-x class="scroll-h" :scroll-into-view="scrollInto" scroll-with-animation>
-				<view v-for="(item,index) in tabBars" :key="index" :id="'tab'+index" style="height: 100rpx;"
+				<view v-for="(item,index) in tabBars" :key="index" :id="'tab'+index" style="height: 100%;"
 					class="uni-tab-item" :class=" {'uni-tab-item-title-active' :tabIndex==index}"
 					@click="changeTab(index)">
 					{{item.name}}
@@ -21,18 +23,17 @@
 		</view>
 
 
-		<view name="newsArea" style="height: 900px;">
+		<view name="newsArea" style="height: 88%;">
 			<!-- 横向滚动 -->
-			<swiper :duration="550" :current="tabIndex" @change="onChangeTab" style="height: 100%;">
-				
+			<swiper :duration="250" :current="tabIndex" @change="onChangeTab" style="height: 100%;">
+
 				<swiper-item v-for="(item,index) in tabBars" :key="index">
 					<newsContent :tabName=item.name></newsContent>
 				</swiper-item>
-				
+
 			</swiper>
 		</view>
-		
-		
+
 
 	</view>
 </template>
@@ -50,6 +51,8 @@
 		},
 		data() {
 			return {
+				// 窗口高度
+				windowHeight: '',
 				// 列表高度
 				scrollH: 200,
 				// 顶部选项卡
@@ -84,6 +87,22 @@
 			}
 		},
 		methods: {
+			toSearch() {
+				//在起始页面跳转到searchIndex.vue页面并传递参数
+				console.log("跳转到搜索界面")
+				uni.navigateTo({
+					url: '/pages/index/searchIndex/searchIndex',
+					events: {
+						success: function() {
+							console.log("成功")
+						},
+						fail: function() {
+							console.log("跳转失败")
+						}
+			
+					}
+				});
+			},
 			// 切换选项卡
 			changeTab(index) {
 				if (this.tabIndex === index) {
@@ -97,6 +116,8 @@
 				uni.getSystemInfo({
 					success: res => {
 						this.scrollH = res.windowHeight - uni.upx2px(100)
+						this.windowHeight = res.windowHeight
+						console.log(this.windowHeight)
 					}
 				})
 			},
@@ -115,6 +136,19 @@
 	* {
 		text-decoration: none;
 		box-sizing: border-box;
+		padding: 0;
+		margin: 0;
+	}
+
+	.container {
+		width: 100vw;
+		height: 94vh;
+	}
+
+	.tab-bars {
+		width: 100vw;
+		height: 5%;
+		border-bottom: 1px solid rgba(186, 186, 186, .3);
 	}
 
 	.tabs {
@@ -136,14 +170,13 @@
 	}
 
 	.scroll-h {
-		width: 750upx;
-		height: 80upx;
+		width: 100%;
+		height: 100%;
 		flex-direction: row;
 		/* #ifndef APP-PLUS */
 		white-space: nowrap;
 		/* #endif */
 		/* flex-wrap: nowrap; */
-		border-bottom: 1px solid rgba(186, 186, 186, .3);
 	}
 
 	.uni-tab-item {
@@ -154,8 +187,8 @@
 		display: inline-flex;
 		/* #endif */
 		flex-wrap: nowrap;
-		padding-left: 34upx;
-		padding-right: 34upx;
+		padding-left: 5%;
+		padding-right: 5%;
 	}
 
 	.uni-tab-item-title-active {
@@ -167,7 +200,7 @@
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
-		height: 40px;
+		height: 7%;
 		width: 100%;
 		background-color: #e24d48;
 	}

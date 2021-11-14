@@ -1,10 +1,10 @@
 <template>
-	<view>
+	<view class="container">
 		<text class="higher-view-text">{{title}}</text>
 		<view class="lower-view">
-			<text style="font-size: 10px; color: red; ">{{status}}</text>
-			<text style="font-size: 10px;">{{author}}</text>
-			<text style="font-size: 10px;">{{date}}</text>
+			<text style="font-size: 1.5vh; color: red; ">{{status}}</text>
+			<text style="font-size: 1.5vh;">{{author}}</text>
+			<text style="font-size: 1.5vh;">{{date}}</text>
 		</view>
 	</view>
 </template>
@@ -44,9 +44,13 @@
 		box-sizing: border-box;
 		font: Arial, Helvetica, sans-serif;
 	}
-
+	
+	.container {
+		width: 100%;
+		height: 100%;
+	}
 	.higher-view-text {
-		font-size: 20px;
+		font-size: 3vh;
 		display: flex;
 		text-align: left;
 		justify-content: flex-start;

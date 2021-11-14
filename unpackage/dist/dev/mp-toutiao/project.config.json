@@ -1,11 +1,19 @@
 {
-  "setting": {
-    "urlCheck": true,
-    "es6": false,
-    "postcss": false,
-    "minified": false,
-    "newFeature": true
-  },
-  "appid": "testAppId",
-  "projectname": "TodayTops"
+    "setting": {
+        "urlCheck": false,
+        "es6": false,
+        "newFeature": false,
+        "postcss": false,
+        "mockUpdate": false,
+        "minified": false,
+        "scripts": false,
+        "mockLogin": false
+    },
+    "appid": "testAppId",
+    "projectname": "TodayTops",
+    "condition": {
+        "miniprogram": {
+            "current": -1
+        }
+    }
 }

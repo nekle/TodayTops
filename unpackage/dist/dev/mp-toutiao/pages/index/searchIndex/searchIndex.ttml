@@ -1,1 +1,1 @@
-<view class="container data-v-195884c2"><view class="search-area data-v-195884c2"><search-bar vue-id="77230b26-1" class="data-v-195884c2" bind:__l="__l"></search-bar><button class="search-button data-v-195884c2">搜索</button></view></view>
+<view class="container data-v-195884c2"><view class="search-area data-v-195884c2"><view class="data-v-195884c2"><search-bar vue-id="77230b26-1" class="data-v-195884c2" bind:__l="__l"></search-bar></view><button class="search-button data-v-195884c2">搜索</button></view></view>
