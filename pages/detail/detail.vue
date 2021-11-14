@@ -1,6 +1,6 @@
 <template>
     <view class="content">
-        <page-head :title="title"></page-head>
+       <!-- <page-head :title="title"></page-head> -->
         <view class="uni-padding-wrap">
             <view class="uni-title uni-common-mt">
                 数组类型

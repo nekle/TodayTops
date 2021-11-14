@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/index/searchIndex/searchIndex",
-    "pages/detail/detail"
+    "pages/detail/detail",
+    "pages/myInfo/myInfo"
   ],
   "subPackages": [],
   "window": {
@@ -25,7 +26,7 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/index/searchIndex/searchIndex",
+        "pagePath": "pages/myInfo/myInfo",
         "iconPath": "static/images/personal-off.png",
         "selectedIconPath": "static/images/personal-on.png",
         "text": "我的"
