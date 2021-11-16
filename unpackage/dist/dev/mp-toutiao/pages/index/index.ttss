@@ -1,18 +1,12 @@
 
 .container.data-v-57280228 {
 	width: 100vw;
-	height: 94vh;
+	height: 80vh;
 }
 .tab-bars.data-v-57280228 {
 	width: 100vw;
-	height: 5%;
+	height: 5vh;
 	border-bottom: 1px solid rgba(186, 186, 186, .3);
-}
-.tabs.data-v-57280228 {
-	flex: 1;
-	flex-direction: column;
-	overflow: hidden;
-	background-color: #ffffff;
 }
 .plus-icon.data-v-57280228 {
 	display: flex;
@@ -48,7 +42,7 @@
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
-	height: 7%;
+	height: 7vh;
 	width: 100%;
 	background-color: #e24d48;
 }

@@ -1,0 +1,1 @@
+<view class="video-card-cotainer data-v-1dea99f0"><view class="video-description data-v-1dea99f0"><view class="video-author data-v-1dea99f0">猫咪好可爱</view><view class="video-title data-v-1dea99f0">两只小猫咪，一只花猫咪，一只白猫咪</view></view><video class="video-container data-v-1dea99f0" src="{{videoSrc}}" controls="{{true}}" poster="{{posterSrc}}"></video></view>

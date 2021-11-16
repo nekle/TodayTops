@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/index/searchIndex/searchIndex",
     "pages/detail/detail",
-    "pages/myInfo/myInfo"
+    "pages/myInfo/myInfo",
+    "pages/detail/videoDetail/videoDetail"
   ],
   "subPackages": [],
   "window": {

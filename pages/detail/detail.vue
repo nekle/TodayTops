@@ -1,27 +1,16 @@
 <template>
     <view class="content">
        <!-- <page-head :title="title"></page-head> -->
-        <view class="uni-padding-wrap">
-            <view class="uni-title uni-common-mt">
-                数组类型
-                <text>\nnodes属性为Array</text>
-            </view>
-            <view class="uni-common-mt" style="background:#FFF; padding:20rpx;">
-                <rich-text :nodes="nodes"></rich-text>
-            </view>
-            <view class="uni-title uni-common-mt">
-                字符串类型
-                <text>\nnodes属性为String</text>
-            </view>
-            <view class="uni-common-mt" style="background:#FFF; padding:20rpx;">
-                <rich-text :nodes="strings"></rich-text>
-            </view>
-        </view>
+        <textNewsPreview></textNewsPreview>
     </view>
 </template>
 
 <script>
+	import textNewsPreview from "../../components/textNewsPreview.vue"
 	export default {
+		components:{
+			textNewsPreview
+		},
 		data() {
 			return {
 				index:'',

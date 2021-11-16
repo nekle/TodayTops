@@ -1,1 +1,1 @@
-<view>我的个人信息</view>
+<view class="view-1"><block tt:if="{{unlogined}}"><view data-event-opts="{{[['tap',[['auth']]]]}}" class="view_image_text" bindtap="__e"><text>点击登录</text></view></block><view hidden="{{!(show)}}" class="view_image_text"><image class="image_radius" src="{{picture}}"></image><text>{{nickname}}</text></view></view>

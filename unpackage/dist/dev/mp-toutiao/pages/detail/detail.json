@@ -1,6 +1,8 @@
 {
-  "navigationBarTitleText": "新闻",
+  "navigationBarTitleText": "",
   "enablePullDownRefresh": false,
   "navigationBarBackgroundColor": "#F8F8F8",
-  "usingComponents": {}
+  "usingComponents": {
+    "text-news-preview": "/components/textNewsPreview"
+  }
 }
