@@ -28,10 +28,12 @@
 			<swiper :duration="250" :current="tabIndex" @change="onChangeTab" style="height: 100%;">
 
 				<swiper-item v-for="(item,index) in tabBars" :key="index">
-					<newsContent :tabName=item.name></newsContent>
+					<newsContent :tabName=item.name v-if="index!=3"> </newsContent>
+					<videoContent :tabName=item.name v-if="index==3"> </videoContent>
 				</swiper-item>
 
 			</swiper>
+
 		</view>
 
 
@@ -42,12 +44,13 @@
 	import searchBar from "../../components/searchBar.vue"
 	import textNewsPreview from "../../components/textNewsPreview.vue"
 	import newsContent from "../../components/newsContent.vue"
-
+	import videoContent from "../../components/videoContent.vue"
 	export default {
 		components: {
 			textNewsPreview,
 			newsContent,
 			searchBar,
+			videoContent,
 		},
 		data() {
 			return {
@@ -59,7 +62,8 @@
 				scrollInto: '',
 				tabIndex: 0,
 				tabBars: [{
-						name: "关注"
+						name: "关注",
+						initData: []
 					},
 					{
 						name: "推荐"
@@ -83,7 +87,9 @@
 						name: "小视频"
 					},
 				],
-				newsList: []
+				newsList: [],
+				currentPage: 1,
+				more: 'more'
 			}
 		},
 		methods: {
@@ -99,7 +105,7 @@
 						fail: function() {
 							console.log("跳转失败")
 						}
-			
+
 					}
 				});
 			},
@@ -124,11 +130,11 @@
 			// 监听滑动
 			onChangeTab(e) {
 				this.changeTab(e.detail.current)
-			},
-		},
-		mounted() {
+			}
 
-		}
+		},
+
+		mounted() {},
 	}
 </script>
 
@@ -142,23 +148,13 @@
 
 	.container {
 		width: 100vw;
-		height: 94vh;
+		height: 80vh;
 	}
 
 	.tab-bars {
 		width: 100vw;
-		height: 5%;
+		height: 5vh;
 		border-bottom: 1px solid rgba(186, 186, 186, .3);
-	}
-
-	.tabs {
-		flex: 1;
-		flex-direction: column;
-		overflow: hidden;
-		background-color: #ffffff;
-		/* #ifdef MP-ALIPAY || MP-BAIDU */
-		height: 100vh;
-		/* #endif */
 	}
 
 	.plus-icon {
@@ -200,7 +196,7 @@
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
-		height: 7%;
+		height: 7vh;
 		width: 100%;
 		background-color: #e24d48;
 	}

@@ -14,7 +14,7 @@
 		</view>
 
 		<!-- 封面图部分 -->
-		<image class="news-cover-img" :src="src" mode="aspectFit" lazy-load></image>
+		<image class="news-cover-img" :src="srcLowDef" mode="aspectFit" lazy-load @click="previewImg()"></image>
 
 
 	</view>
@@ -34,11 +34,22 @@
 
 		data() {
 			return {
-				src: 'https://bjetxgzv.cdn.bspapp.com/VKCEYUGU-uni-app-doc/6acec660-4f31-11eb-a16f-5b3e54966275.jpg'
+				srcHighDef: 'https://bjetxgzv.cdn.bspapp.com/VKCEYUGU-uni-app-doc/6acec660-4f31-11eb-a16f-5b3e54966275.jpg',
+				srcLowDef:'https://bjetxgzv.cdn.bspapp.com/VKCEYUGU-uni-app-doc/6acec660-4f31-11eb-a16f-5b3e54966275.jpg',
 			};
 		},
 
-		methods: {},
+		methods: {
+			previewImg() {
+				let _this = this
+				let imgsArray = []
+				imgsArray[0] = _this.srcHighDef
+				uni.previewImage({
+					current: 0,
+					urls: imgsArray
+				})
+			},
+		},
 
 		mounted() {
 
@@ -78,7 +89,7 @@
 		display: flex;
 		align-items: center;
 		width: 100%;
-		height: 100%;
+		height: 15vh;
 		border-top: .01vh solid rgba(123, 123, 123, .1);
 		border-bottom: .01vh solid rgba(123, 123, 123, .1);
 	}
