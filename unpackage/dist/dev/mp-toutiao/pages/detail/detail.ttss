@@ -1,0 +1,45 @@
+
+.content-area.data-v-3e159eb4 {
+	height: 88vh;
+}
+.container.data-v-3e159eb4 {
+	width: 95vw;
+	margin: 0 2.5vw 0 2.5vw;
+}
+.author-card.data-v-3e159eb4 {
+	display: flex;
+	margin: 1vw 0 1vw 0;
+}
+.avatar.data-v-3e159eb4 {
+	width: 10vw;
+	height: 10vw;
+	border-radius: 5vw 5vw;
+	margin: 2vw;
+}
+.author-description.data-v-3e159eb4 {
+	display: flex;
+	flex-direction: column;
+}
+.comment-fixed.data-v-3e159eb4 {
+	display: flex;
+	align-items: center;
+	width: 95vw;
+	height: 6vh;
+	text-align: center;
+}
+.comment-input-container.data-v-3e159eb4 {
+	width: 47.5vw;
+	display: flex;
+	align-items: center;
+	background-color: rgba(123, 123, 123, .2);
+	border-radius: 2.5vh;
+}
+.comment-input.data-v-3e159eb4 {
+	width: 80%;
+	height: 4.8vh;
+	margin: 0 1% 0 0;
+}
+._p>._img.data-v-3e159eb4 {
+	width: 100%;
+}
+

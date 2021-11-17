@@ -1,42 +1,124 @@
 <template>
-    <view class="content">
-       <!-- <page-head :title="title"></page-head> -->
-        <textNewsPreview></textNewsPreview>
-    </view>
+	<view class="container">
+		<scroll-view scroll-y="true" class="content-area">
+			<!-- <page-head :title="title"></page-head> -->
+			<view class="title">
+				<text style="font-weight: 900;font-size: 4vh;">{{article.title}}</text>
+			</view>
+			<view class="author-card">
+				<view>
+					<image src="../../static/logo.png" class="avatar" mode="aspectFit"></image>
+				</view>
+				<view class="author-description">
+					<text style="font-weight: bold;">{{article.author}}</text>
+					<text style="color: #666666;">8小时前 - 央视新闻网</text>
+				</view>
+
+			</view>
+			<view class="main-content">
+				<view v-html="article.content"></view>
+			</view>
+			<view class="comment-area"></view>
+		</scroll-view>
+
+		<view class="comment-fixed">
+			<view class="comment-input-container">
+				<uni-icons type="chat" style="width: 10%; margin: 0 0 0 10%;"></uni-icons>
+				<input type="text" class="comment-input" placeholder="点击进行评论">
+			</view>
+		</view>
+	</view>
 </template>
 
 <script>
 	import textNewsPreview from "../../components/textNewsPreview.vue"
 	export default {
-		components:{
+		components: {
 			textNewsPreview
 		},
 		data() {
 			return {
-				index:'',
-				nodes: [{name: 'div',
-				        attrs: {
-							class: 'div-class',
-				            style: 'line-height: 60px; color: red; text-align:center;'
-				        },
-				        children: [{
-				            type: 'text',
-				            text: 'Hello&nbsp;uni-app!'
-				        }]
-				}],
-				strings: '<div style="text-align:center;"><img src="https://bjetxgzv.cdn.bspapp.com/VKCEYUGU-uni-app-doc/d8590190-4f28-11eb-b680-7980c8a877b8.png"/></div>'				
+				article: {},
+				articleId: '',
 			}
 		},
 		methods: {
-			
+			getNews() {
+				this.$ajax.get('getNewsById?id=' + this.articleId).then(res => {
+					console.log("id 为" + this.articleId)
+					console.log(res)
+					this.article = res.data.result
+					console.log(this.article)
+				})
+			}
 		},
-		onLoad:function(option){
-			console.log(option.index+"xinjiemian");
-			this.index=option.index;
+		mounted() {
+
+			this.getNews()
+		},
+		onLoad(option) {
+			this.articleId = option.id
 		}
 	}
 </script>
 
-<style>
+<style scoped>
+	* {
+		text-decoration: none;
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
 
+	.content-area {
+		height: 88vh;
+	}
+
+	.container {
+		width: 95vw;
+		margin: 0 2.5vw 0 2.5vw;
+	}
+
+	.author-card {
+		display: flex;
+		margin: 1vw 0 1vw 0;
+	}
+
+	.avatar {
+		width: 10vw;
+		height: 10vw;
+		border-radius: 5vw 5vw;
+		margin: 2vw;
+	}
+
+	.author-description {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.comment-fixed {
+		display: flex;
+		align-items: center;
+		width: 95vw;
+		height: 6vh;
+		text-align: center;
+	}
+
+	.comment-input-container {
+		width: 47.5vw;
+		display: flex;
+		align-items: center;
+		background-color: rgba(123, 123, 123, .2);
+		border-radius: 2.5vh;
+	}
+
+	.comment-input {
+		width: 80%;
+		height: 4.8vh;
+		margin: 0 1% 0 0;
+	}
+
+	p>img {
+		width: 100%;
+	}
 </style>

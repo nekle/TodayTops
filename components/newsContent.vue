@@ -1,11 +1,11 @@
 <template>
 	<view style="width: 100%; height: 100%;">
 		<!-- scroll-left="120"；右边的元素上来的距离 -->
-		<scroll-view class="scroll-view_V" scroll-y="true" show-scroll-bar=true @scrolltolower="loadMoreNewsUp()"
+		<scroll-view class="scroll-view_V" scroll-y="true"  @scrolltolower="loadMoreNewsUp()"
 			lower-threshold="5" @scrolltoupper="refreshNews()" upper-threshold="50">
 
 
-			<view class="scroll-view-item_V" v-for="(item,index) in data" :key="index" @click="item_clicked(index)">
+			<view class="scroll-view-item_V" v-for="(item,index) in data" :key="index" @click="item_clicked(item._id)">
 				<textNewsPreview :title="item.title" :author="item.author" :status="item.status" :date="item.date">
 				</textNewsPreview>
 			</view>
@@ -59,6 +59,7 @@
 			getNews() {
 				this.$ajax.get('getTextNews').then(res => {
 					this.data = res.data.result
+					console.log(this.data)
 				})
 			},
 			refreshNews() {
@@ -76,13 +77,14 @@
 					})
 				})
 			},
-			item_clicked(index) {
-				console.log("--------!zw" + index)
+			item_clicked(id) {
+				console.log("--------!zw" + id)
 				uni.navigateTo({
-					url: '/pages/detail/detail?index=' + index,
+					url: '/pages/detail/detail?id=' + id,
 					events: {
 						success: function() {
 							console.log("成功")
+							console.log(id)
 						},
 						fail: function() {
 							console.log("跳转失败")

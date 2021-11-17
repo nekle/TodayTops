@@ -1,8 +1,8 @@
 <template>
 	<view style="width: 100%; height: 100%;">
 		<!-- scroll-left="120"；右边的元素上来的距离 -->
-		<scroll-view class="scroll-view_V" scroll-y="true" show-scroll-bar=true @scrolltolower="loadMoreNewsUp()"
-			lower-threshold="5" @scrolltoupper="refreshNews()" upper-threshold="50">
+		<scroll-view class="scroll-view_V" scroll-y="true"  @scrolltolower="loadMoreNewsUp()"
+			lower-threshold="5" @scrolltoupper="refreshNews()" upper-threshold="50" @scroll="scroll">
 			<view class="scroll-view-item_V" v-for="(item,index) in data" :key="index" @click="item_clicked(index)">
 				<videoPreview></videoPreview>
 			</view>
@@ -33,6 +33,8 @@
 			};
 		},
 		methods: {
+			scroll(e){
+			},
 			startRefresh() {
 
 
@@ -56,13 +58,12 @@
 					pageNum = Math.floor(Math.random() * pageSum)
 					console.log("生成的页码" + pageNum)
 					this.$ajax.get('getMoreNewsUp?pageNum=' + pageNum).then(res => {
-						console.log(res.data.result)
+						// console.log(res.data.result)
 						this.data = res.data.result
 					})
 				})
 			},
 			item_clicked(index) {
-				console.log("--------!zw" + index)
 				uni.navigateTo({
 					url: '/pages/detail/videoDetail/videoDetail?index=' + index,
 					events: {
@@ -78,9 +79,9 @@
 			// 上滑加载
 			loadMoreNewsUp() {
 				this.$ajax.get('getMoreNewsUp' + '?pageNum=' + this.currentPage++).then(res => {
-					console.log(res.data.result)
+					// console.log(res.data.result)
 					this.data = this.data.concat(res.data.result)
-					console.log(this.data)
+					// console.log(this.data)
 				})
 			},
 			// 下拉刷新
@@ -135,7 +136,6 @@
 
 	.scroll-view-item_V {
 		width: 100%;
-		height: 35vh;
 		border-bottom: .01vh solid rgba(123, 123, 123, .1);
 	}
 </style>
