@@ -4,7 +4,6 @@
 	flex-direction: column;
 	justify-content: center;
 	width: 100%;
-	padding: 1vh 0 1vh 0;
 }
 .video-description.data-v-1dea99f0 {
 	width: 90vw;
@@ -21,8 +20,6 @@
 }
 .video-container.data-v-1dea99f0 {
 	width: 100%;
-	height: 25vh;
 	border-top: .01vh solid rgba(123, 123, 123, 1);
-	border-bottom: .01vh solid rgba(123, 123, 123, 1);
 }
 
