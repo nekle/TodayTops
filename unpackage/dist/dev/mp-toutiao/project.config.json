@@ -1,14 +1,7 @@
 {
-    "setting": {
-        "urlCheck": false,
-        "es6": false,
-        "newFeature": false,
-        "postcss": false,
-        "mockUpdate": false,
-        "minified": false,
-        "scripts": false,
-        "mockLogin": false
-    },
-    "appid": "testAppId",
-    "projectname": "TodayTops"
+  "setting": {
+    "urlCheck": false
+  },
+  "appid": "testAppId",
+  "projectname": "TodayTops"
 }

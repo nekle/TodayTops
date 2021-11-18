@@ -6,13 +6,14 @@
 
 
 			<view class="scroll-view-item_V" v-for="(item,index) in data" :key="index" @click="item_clicked(item._id)">
-				<textNewsPreview :title="item.title" :author="item.author" :status="item.status" :date="item.date">
+				<textNewsPreview :title="item.title" :author="item.author" :status="item.status" :date="item.date"  v-if="item.cover == 'none'">
 				</textNewsPreview>
+				<textNewsWithCover :title="item.title" :author="item.author" :status="item.status" :date="item.date" :coverSource = "item.cover" v-else></textNewsWithCover>
 			</view>
 
 			<view v-for="(item,index) in data" :key="index + 'A'">
 				<!-- 带封面新闻 -->
-				<textNewsWithCover></textNewsWithCover>
+				<!-- <textNewsWithCover></textNewsWithCover> -->
 			</view>
 
 			<view>
@@ -35,7 +36,6 @@
 		components: {
 			textNewsPreview,
 			textNewsWithCover,
-			
 		},
 		data() {
 			return {
@@ -95,9 +95,9 @@
 			// 上滑加载
 			loadMoreNewsUp() {
 				this.$ajax.get('getMoreNewsUp' + '?pageNum=' + this.currentPage++).then(res => {
-					console.log(res.data.result)
+					// console.log(res.data.result)
 					this.data = this.data.concat(res.data.result)
-					console.log(this.data)
+					// console.log(this.data)
 				})
 			},
 			// 下拉刷新
@@ -115,7 +115,7 @@
 			},
 			onAbort() {
 				console.log("onAbort");
-			}
+			},
 		},
 		props: {
 			tabName: String,
@@ -150,14 +150,12 @@
 
 	.scroll-view_V {
 		/* 文本不会换行，文本会在在同一行上继续，直到遇到 <br> 标签为止。 */
-		white-space: nowrap;
-		width: 100%;
+		width: 96vw;
 		height: 100%;
-		margin-left: 2%;
+		margin: 0 2vw 0 2vw;
 	}
 
 	.scroll-view-item_V {
-		width: 80%;
-		height: 10%;
+		width: 100%;
 	}
 </style>

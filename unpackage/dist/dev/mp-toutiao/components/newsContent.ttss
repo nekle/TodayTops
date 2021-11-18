@@ -11,13 +11,11 @@
 }
 .scroll-view_V {
 	/* 文本不会换行，文本会在在同一行上继续，直到遇到 <br> 标签为止。 */
-	white-space: nowrap;
-	width: 100%;
+	width: 96vw;
 	height: 100%;
-	margin-left: 2%;
+	margin: 0 2vw 0 2vw;
 }
 .scroll-view-item_V {
-	width: 80%;
-	height: 10%;
+	width: 100%;
 }
 

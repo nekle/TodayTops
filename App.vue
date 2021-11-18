@@ -18,4 +18,9 @@
 	* {
 		font: Arial, Helvetica, sans-serif;
 	}
+	
+	#imageWrapper{
+		width: 100%;
+		height: auto !improtant;
+	}
 </style>
