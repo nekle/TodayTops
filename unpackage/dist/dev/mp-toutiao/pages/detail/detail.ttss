@@ -10,6 +10,9 @@
 	display: flex;
 	margin: 1vw 0 1vw 0;
 }
+.main-content.data-v-3e159eb4 {
+	width: 100%;
+}
 .avatar.data-v-3e159eb4 {
 	width: 10vw;
 	height: 10vw;
@@ -39,7 +42,7 @@
 	height: 4.8vh;
 	margin: 0 1% 0 0;
 }
-._p>._img.data-v-3e159eb4 {
+._img.data-v-3e159eb4 {
 	width: 100%;
 }
 

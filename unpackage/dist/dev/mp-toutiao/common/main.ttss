@@ -15,4 +15,8 @@
 
 
 /*每个页面公共css */
+#imageWrapper{
+	width: 100%;
+	height: auto !improtant;
+}
 
