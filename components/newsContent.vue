@@ -2,13 +2,13 @@
 	<view style="width: 100%; height: 100%;">
 		<!-- scroll-left="120"；右边的元素上来的距离 -->
 		<scroll-view class="scroll-view_V" scroll-y="true"  @scrolltolower="loadMoreNewsUp()"
-			lower-threshold="5" @scrolltoupper="refreshNews()" upper-threshold="50">
+			lower-threshold="5" @scrolltoupper="refreshNews()" upper-threshold="50" enable-back-to-top>
 
 
 			<view class="scroll-view-item_V" v-for="(item,index) in data" :key="index" @click="item_clicked(item._id)">
 				<textNewsPreview :title="item.title" :author="item.author" :status="item.status" :date="item.date"  v-if="item.cover == 'none'">
 				</textNewsPreview>
-				<textNewsWithCover :title="item.title" :author="item.author" :status="item.status" :date="item.date" :coverSource = "item.cover" v-else></textNewsWithCover>
+				<textNewsWithCover :title="item.title" :author="item.author" :status="item.status" :date="item.date" :coverSource = "item.cover" :lowCover = "item.lowCover" v-else></textNewsWithCover>
 			</view>
 
 			<view v-for="(item,index) in data" :key="index + 'A'">
@@ -16,7 +16,7 @@
 				<!-- <textNewsWithCover></textNewsWithCover> -->
 			</view>
 
-			<view>
+			<view >
 				<text>
 					上滑加载更多内容
 				</text>
@@ -45,6 +45,7 @@
 				triggered: false,
 				_freshing: false,
 				scrolling: false,
+				currentPage:'',
 			};
 		},
 		methods: {
@@ -69,7 +70,14 @@
 					pageSum = res.data.result
 					console.log("pageSum:" + res.data.result)
 					console.log("总页数" + pageSum)
-					pageNum = Math.floor(Math.random() * pageSum)
+					// 保证页码不重复
+					do{
+						pageNum = Math.floor(Math.random() * pageSum)
+						if(pageNum == pageSum - 1){
+							pageNum--
+						}
+					}while(this.currentPage == pageNum)
+					this.currentPage = pageNum
 					console.log("生成的页码" + pageNum)
 					this.$ajax.get('getMoreNewsUp?pageNum=' + pageNum).then(res => {
 						console.log(res.data.result)

@@ -1,7 +1,12 @@
 {
-  "setting": {
-    "urlCheck": false
-  },
-  "appid": "testAppId",
-  "projectname": "TodayTops"
+    "setting": {
+        "urlCheck": false
+    },
+    "appid": "testAppId",
+    "projectname": "TodayTops",
+    "condition": {
+        "miniprogram": {
+            "current": -1
+        }
+    }
 }

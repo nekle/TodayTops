@@ -1,6 +1,7 @@
 <template>
 	<view class="container">
-		<scroll-view scroll-y="true" class="content-area">
+		<scroll-view scroll-y="true" class="content-area" @scrolltolower="loadMoreComment()"
+			lower-threshold="5" enable-back-to-top>
 			<!-- <page-head :title="title"></page-head> -->
 			<view class="title">
 				<text style="font-weight: 900;font-size: 4vh;">{{article.title}}</text>
@@ -13,22 +14,43 @@
 					<text style="font-weight: bold;">{{article.author}}</text>
 					<text style="color: #666666;">8小时前 - {{article.author}}</text>
 				</view>
-
 			</view>
 			<view class="main-content">
 				<uParse :content="article.content" @preview="zoomIn()"></uParse>
 				<!-- <rich-text :nodes="article.content"  preview @itemclick="zoomIn()"></rich-text> -->
 				<!-- <rich-text space='emsp' @click="点击事件" :data-nodes="数据" :nodes="数据"></rich-text> -->
 			</view>
-			<view class="comment-area"></view>
+			<view class="comment-area">
+				<view style="margin: 4vh 1vw 4vh 0; display: flex;justify-content: space-between;">
+					<text style="font-weight: bolder;margin-left: 3.5vw;">评论 {{commentSum}}</text>
+					<text style="color: #999999;">1.2万 赞 | 22 转发</text>
+				</view>
+				<view class="comment-card" v-for="(item,index) in data" :key="index + 'A'">
+					<view class="author-card">
+						<view>
+							<image src="../../static/logo.png" class="avatar" mode="aspectFit"></image>
+						</view>
+						<view class="author-description">
+							<text style="font-weight: bold;">{{article.author}}</text>
+							<text style="color: #666666;">{{index}}小时前</text>
+						</view>
+
+					</view>
+					<view style="margin-left: 15vw;margin-bottom: 2vh;height: 10vh;">
+						<text>
+							{{item}}
+						</text>
+					</view>
+				</view>
+
+			</view>
 		</scroll-view>
 
 		<view class="comment-fixed">
-			<view class="comment-input-container" @click="share()">
+			<view class="comment-input-container">
 				<uni-icons type="chat" style="width: 10%; margin: 0 0 0 10%;"></uni-icons>
 				<input type="text" class="comment-input" placeholder="点击进行评论">
 			</view>
-			<button type="default" @click="share">打开点开分享弹窗</button>
 		</view>
 	</view>
 </template>
@@ -43,6 +65,8 @@
 		},
 		data() {
 			return {
+				commentSum:21,
+				data:["不错","送你一朵小红花","国泰民安","祖国繁荣昌盛","祝您每天开心","祝世界和平","祝你每天都有好心情"],
 				article: {},
 				articleId: '',
 				// [PopupShare分享插件]控制显示需要的分享item项
@@ -58,6 +82,10 @@
 			}
 		},
 		methods: {
+			loadMoreComment(){
+				if(this.commentSum >= this.data.length)
+				this.data = this.data.concat(this.data)
+			},
 			// @通过组件ref调用弹窗方法
 			// 打开分享弹窗
 			ShowShare() {
@@ -90,16 +118,16 @@
 					}
 				});
 				uni.share({
-				    provider: "weixin",
-				    scene: "WXSceneSession",
-				    type: 1,
-				    summary: "我正在使用HBuilderX开发uni-app，赶紧跟我一起来体验！",
-				    success: function (res) {
-				        console.log("success:" + JSON.stringify(res));
-				    },
-				    fail: function (err) {
-				        console.log("fail:" + JSON.stringify(err));
-				    }
+					provider: "weixin",
+					scene: "WXSceneSession",
+					type: 1,
+					summary: "我正在使用HBuilderX开发uni-app，赶紧跟我一起来体验！",
+					success: function(res) {
+						console.log("success:" + JSON.stringify(res));
+					},
+				 fail: function(err) {
+						console.log("fail:" + JSON.stringify(err));
+					}
 				});
 			},
 		},
@@ -150,6 +178,9 @@
 		flex-direction: column;
 	}
 
+	.comment-card {
+		margin: 0 0 1vh 1vw;
+	}
 
 	.comment-fixed {
 		display: flex;

@@ -2,7 +2,7 @@
 	<view class="container">
 		<text class="higher-view-text">{{title}}</text>
 		<view class="lower-view">
-			<text style="font-size: 1.5vh; color: red; ">{{status}}</text>
+			<!-- <text style="font-size: 1.5vh; color: red; ">{{status}}</text> -->
 			<text style="font-size: 1.5vh;">{{author}}</text>
 			<text style="font-size: 1.5vh;">{{date}}</text>
 		</view>

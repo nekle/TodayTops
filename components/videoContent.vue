@@ -3,8 +3,8 @@
 		<!-- scroll-left="120"；右边的元素上来的距离 -->
 		<scroll-view class="scroll-view_V" scroll-y="true"  @scrolltolower="loadMoreNewsUp()"
 			lower-threshold="5" @scrolltoupper="refreshNews()" upper-threshold="50" @scroll="scroll">
-			<view class="scroll-view-item_V" v-for="(item,index) in data" :key="index" @click="item_clicked(index)">
-				<videoPreview :author = "item.author" :title = "item.title" :videoSrc="item.url" ></videoPreview>
+			<view class="scroll-view-item_V" v-for="(item,index) in data" :key="index">
+				<videoPreview :author = "item.author" :title = "item.title" :videoSrc="item.url" :_id="item._id"></videoPreview>
 			</view>
 			<view>
 				<text>
@@ -62,19 +62,6 @@
 						// console.log(res.data.result)
 						this.data = res.data.result
 					})
-				})
-			},
-			item_clicked(index) {
-				uni.navigateTo({
-					url: '/pages/detail/videoDetail/videoDetail?index=' + index,
-					events: {
-						success: function() {
-							console.log("成功")
-						},
-						fail: function() {
-							console.log("跳转失败")
-						}
-					}
 				})
 			},
 			// 上滑加载
