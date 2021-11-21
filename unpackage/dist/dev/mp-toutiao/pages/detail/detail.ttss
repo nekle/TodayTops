@@ -23,6 +23,9 @@
 	display: flex;
 	flex-direction: column;
 }
+.comment-card.data-v-3e159eb4 {
+	margin: 0 0 1vh 1vw;
+}
 .comment-fixed.data-v-3e159eb4 {
 	display: flex;
 	align-items: center;

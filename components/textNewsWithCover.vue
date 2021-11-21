@@ -7,14 +7,16 @@
 				<text class="higher-view-text">{{title}}</text>
 			</view>
 			<view class="news-description">
-				<text style="font-size: 1vh; color: red; ">{{status}}</text>
+<!-- 				<text style="font-size: 1vh; color: red; ">{{status}}</text> -->
 				<text style="font-size: 1vh;">{{author}}</text>
 				<text style="font-size: 1vh;">{{date}}</text>
 			</view>
 		</view>
 
 		<!-- 封面图部分 -->
-		<image class="news-cover-img" :src="coverSource" mode="aspectFit" lazy-load ></image>
+		<image class="news-cover-img" :src="coverSource" mode="aspectFit" lazy-load v-if="network"></image>
+		<!-- 封面图部分 -->
+		<image class="news-cover-img" :src="lowCover" mode="aspectFit" lazy-load v-if="!network"></image>
 
 
 	</view>
@@ -31,10 +33,12 @@
 			author: String,
 			date: String,
 			coverSource: String,
+			lowCover:String,
 		},
 
 		data() {
 			return {
+				network:true,
 				srcHighDef: 'https://bjetxgzv.cdn.bspapp.com/VKCEYUGU-uni-app-doc/6acec660-4f31-11eb-a16f-5b3e54966275.jpg',
 				srcLowDef: 'https://bjetxgzv.cdn.bspapp.com/VKCEYUGU-uni-app-doc/6acec660-4f31-11eb-a16f-5b3e54966275.jpg',
 			};
@@ -53,7 +57,19 @@
 		},
 
 		mounted() {
-
+			let obj  = {
+				_this: this,
+				success : function(res){
+					console.log(obj._this.network)
+					console.log(res.networkType)
+					if(res.networkType == "wifi" || res.networkType == "unknown"){
+						obj._this.network = true
+					}else{
+						obj._this.network = false
+					}
+				}
+			}
+			uni.getNetworkType(obj)
 		}
 
 	}
